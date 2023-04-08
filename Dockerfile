@@ -1,6 +1,6 @@
-FROM python:3-alpine
+FROM python:3.7.2-alpine
 
-MAINTAINER Peter Fisher
+MAINTAINER Ramnivas Dhaker
 
 COPY ./app/requirements.txt /app/requirements.txt
 
@@ -23,4 +23,5 @@ RUN npm install
 
 COPY ./app /app
 
-CMD ["python", "app.py"]
+CMD ["python", "add_products.py"]
+CMD ["python", "app.py" , "--port=5558"]

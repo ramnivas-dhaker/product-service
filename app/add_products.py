@@ -1,6 +1,5 @@
 from models import db, Product
 import setup
-
 app = setup.create_app()
 
 items = [
@@ -42,24 +41,25 @@ items = [
     },
 ]
 
-for item in items:
+def add_products():
+    for item in items:
 
-    record = Product.query.filter_by(slug=item['slug']).first()
+        record = Product.query.filter_by(slug=item['slug']).first()
 
-    if record is None:
+        if record is None:
 
-        print("Adding product " + item['slug'] + "\n")
+            print("Adding product " + item['slug'] + "\n")
 
-        record = Product()
-        record.name = item['name']
-        record.slug = item['slug']
-        record.image = item['image']
-        record.price = item['price']
+            record = Product()
+            record.name = item['name']
+            record.slug = item['slug']
+            record.image = item['image']
+            record.price = item['price']
 
-        db.session.add(record)
-        db.session.commit()
-    else:
-        print("product " + item['slug'] + " has already been added ...... Skipping \n")
+            db.session.add(record)
+            db.session.commit()
+        else:
+            print("product " + item['slug'] + " has already been added ...... Skipping \n")
 
 
 

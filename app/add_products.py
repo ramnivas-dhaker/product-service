@@ -41,25 +41,25 @@ items = [
     },
 ]
 
-def add_products():
-    for item in items:
 
-        record = Product.query.filter_by(slug=item['slug']).first()
+for item in items:
 
-        if record is None:
+    record = Product.query.filter_by(slug=item['slug']).first()
 
-            print("Adding product " + item['slug'] + "\n")
+    if record is None:
 
-            record = Product()
-            record.name = item['name']
-            record.slug = item['slug']
-            record.image = item['image']
-            record.price = item['price']
+        print("Adding product " + item['slug'] + "\n")
 
-            db.session.add(record)
-            db.session.commit()
-        else:
-            print("product " + item['slug'] + " has already been added ...... Skipping \n")
+        record = Product()
+        record.name = item['name']
+        record.slug = item['slug']
+        record.image = item['image']
+        record.price = item['price']
+
+        db.session.add(record)
+        db.session.commit()
+    else:
+        print("product " + item['slug'] + " has already been added ...... Skipping \n")
 
 
 

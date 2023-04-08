@@ -22,7 +22,7 @@ services:
     build:
       context: .
     ports:
-      - 8000:5558
+      - 5558:5558
     links:
       - product_db
     depends_on:

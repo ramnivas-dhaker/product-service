@@ -5,7 +5,7 @@ import requests
 
 class TestFlaskApiUsingRequests(TestCase):
     def test_products(self):
-        response = requests.get('http://0.0.0.0:5558/api/products')
+        response = requests.get('http://0.0.0.0:5559/api/products')
         self.assertEqual(response.status_code, 200)
 
     def test_create(self):
@@ -17,9 +17,9 @@ class TestFlaskApiUsingRequests(TestCase):
                 "slug": "product-1"
             }
         }
-        response = requests.post('http://0.0.0.0:5558/api/product/create', payload)
+        response = requests.post('http://0.0.0.0:5559/api/product/create', payload)
         self.assertEqual(response.status_code, 200)
 
     def test_product(self):
-        response = requests.get('http://0.0.0.0:5558/api/product/product-1')
+        response = requests.get('http://0.0.0.0:5559/api/product/product-1')
         self.assertEqual(response.status_code, 200)

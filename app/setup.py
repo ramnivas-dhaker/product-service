@@ -15,7 +15,9 @@ def create_app():
         SECRET_KEY="powerful secretkey",
         WTF_CSRF_SECRET_KEY="a csrf secret key",
         # SQLALCHEMY_DATABASE_URI='mysql+mysqlconnector://username:password@0.0.0.0:13306/product',
-        SQLALCHEMY_DATABASE_URI='mysql+mysqlconnector://root:test@product_db:3306/product',
+        # SQLALCHEMY_DATABASE_URI='mysql+mysqlconnector://root:test@0.0.0.0:3306/product',
+        SQLALCHEMY_DATABASE_URI='mysql+mysqlconnector://root:test@mysql.default.svc.cluster.local/product',
+        # SQLALCHEMY_DATABASE_URI='mysql+mysqlconnector://root:test@0.0.0.0:13306/product',
         SQLALCHEMY_TRACK_MODIFICATIONS=False
     ))
 
